@@ -1,0 +1,32 @@
+---
+output: rmarkdown::github_document
+---
+
+# pdfbox
+
+## Description
+
+## What's Inside The Tin
+
+The following functions are implemented:
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/pdfbox")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+## Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(pdfbox)
+
+# current verison
+packageVersion("pdfbox")
+
+```
+
