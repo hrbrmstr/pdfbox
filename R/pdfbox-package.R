@@ -1,4 +1,4 @@
-#' ...
+#' Create, Maniuplate and Extract Data from PDF Files
 #'
 #' @name pdfbox
 #' @docType package

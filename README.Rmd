@@ -23,11 +23,11 @@ since `poppler` may not try to accommodate all the stupidity that we're now likl
 
 ## What's Inside The Tin
 
-- Nothing at the moment
+- The ability to extract URI annotations
 
 The following functions are implemented:
 
-- Nothing at the moment
+- `extract_uris`:	Extract URI annotations from a PDF document
 
 ## Installation
 
@@ -47,6 +47,13 @@ library(pdfbox)
 
 # current verison
 packageVersion("pdfbox")
+```
 
+### Extract URI Annotations
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+extract_uris(
+  system.file("extdata","imperfect-forward-secrecy-ccs15.pdf", package="pdfbox")
+)
 ```
 

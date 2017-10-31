@@ -1,18 +1,20 @@
 Package: pdfbox
 Type: Package
 Title: Create, Maniuplate and Extract Data from PDF Files
-Version: 0.1.0
+Version: 0.2.0
 Date: 2017-10-22
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
-           comment = c(ORCID = "0000-0001-5670-2640"))
+           comment = c(ORCID = "0000-0001-5670-2640")),
+    person("Apache", "Software Foundation", role = c("aut", "ctb"),
+           comment = "PDFBox Java library")
   )
 Maintainer: Bob Rudis <bob@rud.is>
 SystemRequirements: Java
-Description: The Apache PDFBox library is an open source Java tool for working 
-    with PDF documents. This project allows creation of new PDF documents, 
-    manipulation of existing documents and the ability to extract content from 
-    documents. This is a thin wrapper around some of PDFBox functionality.
+Description: The 'Apache' 'PDFBox' library is an open source 'Java' tools for working 
+    with Portable Document Format ('PDF') documents. This project allows creation of new 
+    'PDF' documents, manipulation of existing documents and the ability to extract content
+    from documents. This is a thin wrapper around some 'PDFBox' capabilities.
 URL: https://github.com/hrbrmstr/pdfbox
 BugReports: https://github.com/hrbrmstr/pdfbox/issues
 License: Apache License 2.0 | file LICENSE

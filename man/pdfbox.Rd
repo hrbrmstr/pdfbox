@@ -4,9 +4,9 @@
 \name{pdfbox}
 \alias{pdfbox}
 \alias{pdfbox-package}
-\title{...}
+\title{Create, Maniuplate and Extract Data from PDF Files}
 \description{
-...
+Create, Maniuplate and Extract Data from PDF Files
 }
 \author{
 Bob Rudis (bob@rud.is)
