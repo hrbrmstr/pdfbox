@@ -51,6 +51,28 @@ packageVersion("pdfbox")
 
     ## [1] '0.2.0'
 
+### PDF Info
+
+``` r
+pdf_info(
+ system.file(
+   "extdata", "imperfect-forward-secrecy-ccs15.pdf", package="pdfbox"
+ )
+) -> info
+
+dplyr::glimpse(info)
+```
+
+    ## Observations: 1
+    ## Variables: 7
+    ## $ title             <chr> "Imperfect Forward Secrecy: How Diffie-Hellman Fails in Practice"
+    ## $ subject           <chr> ""
+    ## $ author            <chr> ""
+    ## $ creation_date     <chr> "Aug 21, 2015 11:06:23 AM"
+    ## $ modification_date <chr> "Aug 21, 2015 11:08:05 AM"
+    ## $ producer          <chr> "pdfTeX-1.40.14"
+    ## $ keywords          <chr> ""
+
 ### Extract URI Annotations
 
 ``` r
@@ -59,74 +81,20 @@ extract_uris(
 )
 ```
 
-    ##    page                                                                                                  uri
-    ## 1     1                                                                                   https://weakdh.org
-    ## 2     6                                                                                          www.fbi.gov
-    ## 3    12                                               http://cr.yp.to/factorization/smoothparts-20040510.pdf
-    ## 4    12                                                                     http://caramel.loria.fr/p180.txt
-    ## 5    12                                       http://www.hyperelliptic.org/tanja/SHARCS/talks06/thorsten.pdf
-    ## 6    12                                       http://www.hyperelliptic.org/tanja/SHARCS/talks06/thorsten.pdf
-    ## 7    13                                                                      https://www.olcf.ornl.gov/titan
-    ## 8    13 http://www.spiegel.de/international/germany/inside-the-nsa-s-war-on-internet-security-a-1010361.html
-    ## 9    13 http://www.spiegel.de/international/germany/inside-the-nsa-s-war-on-internet-security-a-1010361.html
-    ## 10   13                                                                              http://www.sagemath.org
-    ## 11   13           https://github.com/bumptech/stud/blob/19a7f19686bcdbd689c6fbea31f68a276e62d886/stud.c#L593
-    ## 12   13           https://github.com/bumptech/stud/blob/19a7f19686bcdbd689c6fbea31f68a276e62d886/stud.c#L593
-    ## 13   13                                   https://devcentral.f5.com/articles/ssl-profiles-part-5-ssl-options
-    ## 14   13                                   https://devcentral.f5.com/articles/ssl-profiles-part-5-ssl-options
-    ## 15   13                                                                 https://gforge.inria.fr/projects/ecm
-    ## 16   13                                                          http://www.spiegel.de/media/media-35671.pdf
-    ## 17   13                                                          http://www.spiegel.de/media/media-35529.pdf
-    ## 18   13                                                      http://cryptome.org/2013/08/spy-budget-fy13.pdf
-    ## 19   13                                                          http://www.spiegel.de/media/media-35514.pdf
-    ## 20   13                                                          http://www.spiegel.de/media/media-35509.pdf
-    ## 21   13                                                          http://www.spiegel.de/media/media-35515.pdf
-    ## 22   13                                                          http://www.spiegel.de/media/media-35533.pdf
-    ## 23   13                                                          http://www.spiegel.de/media/media-35519.pdf
-    ## 24   13        http://www.nytimes.com/interactive/2013/11/23/us/politics/23nsa-sigint-strategy-document.html
-    ## 25   13        http://www.nytimes.com/interactive/2013/11/23/us/politics/23nsa-sigint-strategy-document.html
-    ## 26   13                                                          http://www.spiegel.de/media/media-35522.pdf
-    ## 27   13                                                          http://www.spiegel.de/media/media-35513.pdf
-    ## 28   13                                                          http://www.spiegel.de/media/media-35528.pdf
-    ## 29   13                                                          http://www.spiegel.de/media/media-35526.pdf
-    ## 30   13                                                          http://www.spiegel.de/media/media-35517.pdf
-    ## 31   13                                                          http://www.spiegel.de/media/media-35527.pdf
-    ## 32   13                                                          http://www.spiegel.de/media/media-35520.pdf
-    ## 33   13                                                          http://www.spiegel.de/media/media-35551.pdf
-    ##                                                           text
-    ## 1                                                  WeakDH.org.
-    ## 2                                                 www.fbi.gov.
-    ## 3      http://cr.yp.to/factorization/smoothparts-20040510.pdf.
-    ## 4                            http://caramel.loria.fr/p180.txt.
-    ## 5                          http://www.hyperelliptic.org/tanja/
-    ## 6                                 SHARCS/talks06/thorsten.pdf.
-    ## 7                             https://www.olcf.ornl.gov/titan.
-    ## 8                 http://www.spiegel.de/international/germany/
-    ## 9    inside-the-nsa-s-war-on-internet-security-a-1010361.html.
-    ## 10                                    http://www.sagemath.org.
-    ## 11                      https://github.com/bumptech/stud/blob/
-    ## 12       19a7f19686bcdbd689c6fbea31f68a276e62d886/stud.c#L593.
-    ## 13                                                    https://
-    ## 14 devcentral.f5.com/articles/ssl-profiles-part-5-ssl-options.
-    ## 15                       https://gforge.inria.fr/projects/ecm.
-    ## 16                http://www.spiegel.de/media/media-35671.pdf.
-    ## 17                http://www.spiegel.de/media/media-35529.pdf.
-    ## 18            http://cryptome.org/2013/08/spy-budget-fy13.pdf.
-    ## 19                http://www.spiegel.de/media/media-35514.pdf.
-    ## 20                http://www.spiegel.de/media/media-35509.pdf.
-    ## 21                http://www.spiegel.de/media/media-35515.pdf.
-    ## 22                http://www.spiegel.de/media/media-35533.pdf.
-    ## 23                http://www.spiegel.de/media/media-35519.pdf.
-    ## 24           http://www.nytimes.com/interactive/2013/11/23/us/
-    ## 25               politics/23nsa-sigint-strategy-document.html.
-    ## 26                http://www.spiegel.de/media/media-35522.pdf.
-    ## 27                http://www.spiegel.de/media/media-35513.pdf.
-    ## 28                http://www.spiegel.de/media/media-35528.pdf.
-    ## 29                http://www.spiegel.de/media/media-35526.pdf.
-    ## 30                http://www.spiegel.de/media/media-35517.pdf.
-    ## 31                http://www.spiegel.de/media/media-35527.pdf.
-    ## 32                http://www.spiegel.de/media/media-35520.pdf.
-    ## 33                http://www.spiegel.de/media/media-35551.pdf.
+    ## # A tibble: 33 x 3
+    ##     page                                                                                                  uri
+    ##    <int>                                                                                                <chr>
+    ##  1     1                                                                                   https://weakdh.org
+    ##  2     6                                                                                          www.fbi.gov
+    ##  3    12                                               http://cr.yp.to/factorization/smoothparts-20040510.pdf
+    ##  4    12                                                                     http://caramel.loria.fr/p180.txt
+    ##  5    12                                       http://www.hyperelliptic.org/tanja/SHARCS/talks06/thorsten.pdf
+    ##  6    12                                       http://www.hyperelliptic.org/tanja/SHARCS/talks06/thorsten.pdf
+    ##  7    13                                                                      https://www.olcf.ornl.gov/titan
+    ##  8    13 http://www.spiegel.de/international/germany/inside-the-nsa-s-war-on-internet-security-a-1010361.html
+    ##  9    13 http://www.spiegel.de/international/germany/inside-the-nsa-s-war-on-internet-security-a-1010361.html
+    ## 10    13                                                                              http://www.sagemath.org
+    ## # ... with 23 more rows, and 1 more variables: text <chr>
 
 ### Extract text
 

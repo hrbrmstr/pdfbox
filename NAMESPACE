@@ -3,6 +3,7 @@
 export(extract_text)
 export(extract_uris)
 export(image_count)
+export(pdf_info)
 export(stop_logging)
 import(pdfboxjars)
 import(rJava)

@@ -43,6 +43,7 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.contentstream.operator.Operator;
 import org.apache.pdfbox.contentstream.PDFStreamEngine;
 import org.apache.pdfbox.contentstream.operator.OperatorProcessor;
+import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 
 import is.rud.rpkg.PdfImageCounter;
 
@@ -267,6 +268,26 @@ public static long image_count(String pdfPath) throws IOException {
  } finally {};
 
  return(count);
+
+}
+
+public static PDDocumentInformation pdf_info(String pdfPath) {
+
+  PDDocument document = null;
+
+  try {
+
+    File input = new File(pdfPath);
+
+    String filePath = input.getParent() + System.getProperty("file.separator");
+
+    document = PDDocument.load(input);
+    return(document.getDocumentInformation());
+
+ } catch (IOException e) {
+  return(null);
+ }
+
 
 }
 

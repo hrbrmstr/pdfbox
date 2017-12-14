@@ -52,6 +52,18 @@ library(pdfbox)
 packageVersion("pdfbox")
 ```
 
+### PDF Info
+
+```{r}
+pdf_info(
+ system.file(
+   "extdata", "imperfect-forward-secrecy-ccs15.pdf", package="pdfbox"
+ )
+) -> info
+
+dplyr::glimpse(info)
+```
+
 ### Extract URI Annotations
 
 ```{r message=FALSE, warning=FALSE, error=FALSE}
