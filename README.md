@@ -1,39 +1,46 @@
 
-pdfbox
-======
+# pdfbox
 
-Create, Maniuplate and Extract Data from PDF Files (R Apache PDFBox wrapper)
+Create, Maniuplate and Extract Data from PDF Files (R Apache PDFBox
+wrapper)
 
-Description
------------
+## Description
 
-I came across this thread (<https://twitter.com/derekwillis/status/922138080043241473>) and it looks like some misguided folks are going to help promote the use of PDF documents as a legit way to dissemiante data, which means that we're likely to see more evil orgs and Government agencies try to use PDFs to hide data.
+I came across this thread
+(<https://twitter.com/derekwillis/status/922138080043241473>) and it
+looks like some misguided folks are going to help promote the use of PDF
+documents as a legit way to dissemiante data, which means that we’re
+likely to see more evil orgs and Government agencies try to use PDFs to
+hide data.
 
-PDFs are barely useful as publication holders these days let alone data sources.
+PDFs are barely useful as publication holders these days let alone data
+sources.
 
-Apache [PDFBox](https://pdfbox.apache.org/index.html) is a project that provides a comprehensive suite of tools to do things with and to PDF documents.
+Apache [PDFBox](https://pdfbox.apache.org/index.html) is a project that
+provides a comprehensive suite of tools to do things with and to PDF
+documents.
 
-The aim here is to fill in any gaps in [`pdftools`](https://github.com/ropensci/pdftools) since `poppler` may not try to accommodate all the stupidity that we're now likley to see.
+The aim here is to fill in any gaps in
+[`pdftools`](https://github.com/ropensci/pdftools) since `poppler` may
+not try to accommodate all the stupidity that we’re now likley to see.
 
-What's Inside The Tin
----------------------
+## What’s Inside The Tin
 
--   The ability to extract URI annotations
+  - The ability to extract URI annotations
 
 The following functions are implemented:
 
--   `extract_uris`: Extract URI annotations from a PDF document
+  - `extract_uris`: Extract URI annotations from a PDF document
+  - `extract_text`: Extract text from a PDF document
 
-Installation
-------------
+## Installation
 
 ``` r
 devtools::install_github("hrbrmstr/pdfboxjars")
 devtools::install_github("hrbrmstr/pdfbox")
 ```
 
-Usage
------
+## Usage
 
 ``` r
 library(pdfbox)
@@ -42,7 +49,7 @@ library(pdfbox)
 packageVersion("pdfbox")
 ```
 
-    ## [1] '0.1.0'
+    ## [1] '0.2.0'
 
 ### Extract URI Annotations
 
@@ -120,3 +127,17 @@ extract_uris(
     ## 31                http://www.spiegel.de/media/media-35527.pdf.
     ## 32                http://www.spiegel.de/media/media-35520.pdf.
     ## 33                http://www.spiegel.de/media/media-35551.pdf.
+
+### Extract text
+
+``` r
+extract_text(
+  system.file(
+    "extdata", "imperfect-forward-secrecy-ccs15.pdf", package="pdfbox"
+  )
+) -> txt
+str(stringi::stri_split_lines(txt))
+```
+
+    ## List of 1
+    ##  $ : chr [1:1497] "Imperfect Forward Secrecy:" "How Diffie-Hellman Fails in Practice" "David Adrian¶ Karthikeyan Bhargavan∗ Zakir Durumeric¶ Pierrick Gaudry† Matthew Green§" "J. Alex Halderman¶ Nadia Heninger‡ Drew Springall¶ Emmanuel Thomé† Luke Valenta‡" ...

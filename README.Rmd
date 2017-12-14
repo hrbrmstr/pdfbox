@@ -1,5 +1,7 @@
 ---
 output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 # pdfbox
@@ -28,6 +30,7 @@ since `poppler` may not try to accommodate all the stupidity that we're now likl
 The following functions are implemented:
 
 - `extract_uris`:	Extract URI annotations from a PDF document
+- `extract_text`:	Extract text from a PDF document
 
 ## Installation
 
@@ -57,3 +60,13 @@ extract_uris(
 )
 ```
 
+### Extract text
+
+```{r}
+extract_text(
+  system.file(
+    "extdata", "imperfect-forward-secrecy-ccs15.pdf", package="pdfbox"
+  )
+) -> txt
+str(stringi::stri_split_lines(txt))
+```

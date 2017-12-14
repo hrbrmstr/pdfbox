@@ -2,7 +2,8 @@
 
 pkg:
 		mvn --quiet package
-			cp target/rpkg-1.0-SNAPSHOT.jar ../../inst/java
+		cp target/rpkg-1.0-SNAPSHOT.jar ../../inst/java
+#		Rscript -e "devtools::install('../..')"
 
 clean:
 		mvn clean
