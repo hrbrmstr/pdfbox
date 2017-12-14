@@ -62,6 +62,19 @@ class uridf {
   }
 }
 
+class pgdf {
+  public Integer [] page;
+  public String [] text;
+  public pgdf() {
+    page = null;
+    text = null;
+  }
+  public void populate(List<Integer> ret_page, List<String> ret_text) {
+    page = ret_page.toArray(new Integer[ret_page.size()]);
+    text = ret_text.toArray(new String[ret_text.size()]);
+  }
+}
+
 public class App {
 
   public static uridf extractURIs(String pdfPath) throws IOException {
@@ -257,10 +270,12 @@ public static long image_count(String pdfPath) throws IOException {
 
 }
 
-public static String extract_text(String pdfPath) {
+public static pgdf extract_text(String pdfPath) {
   PDFTextStripper pdfStripper = null;
   PDDocument pdDoc = null;
   COSDocument cosDoc = null;
+  List<Integer> ret_page = new ArrayList<Integer>();
+  List<String> ret_text = new ArrayList<String>();
   File file = new File(pdfPath);
   try {
     PDFParser parser = new PDFParser(new RandomAccessFile(file, "r"));
@@ -268,10 +283,24 @@ public static String extract_text(String pdfPath) {
     cosDoc = parser.getDocument();
     pdfStripper = new PDFTextStripper();
     pdDoc = new PDDocument(cosDoc);
-    pdfStripper.setStartPage(1);
-    pdfStripper.setEndPage(pdDoc.getNumberOfPages());
-    String parsedText = pdfStripper.getText(pdDoc);
-    return(parsedText);
+    int pgct = pdDoc.getNumberOfPages();
+
+    for(int i=1; i<=pgct; i++) {
+
+      pdfStripper.setStartPage(i);
+      pdfStripper.setEndPage(i);
+
+      String parsedText = pdfStripper.getText(pdDoc);
+
+      ret_page.add(i);
+      ret_text.add(parsedText);
+
+    }
+
+    pgdf ret_df = new pgdf();
+    if (ret_page.size() > 0) ret_df.populate(ret_page, ret_text);
+    return(ret_df);
+
   } catch (IOException e) {
     return(null);
   } 

@@ -10,8 +10,15 @@ extract_text(path)
 \item{path}{path to PDF file (is auto-expanded with \code{\link[=path.expand]{path.expand()}})}
 }
 \value{
-character vecto
+data frame
 }
 \description{
 Extract text from a PDF document
+}
+\examples{
+extract_text(
+  system.file(
+    "extdata", "imperfect-forward-secrecy-ccs15.pdf", package="pdfbox"
+  )
+)
 }

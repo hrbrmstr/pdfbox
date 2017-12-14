@@ -2,7 +2,7 @@
 #'
 #' @md
 #' @param path path to PDF file (is auto-expanded with [path.expand()])
-#' @return character vector
+#' @return data frame
 #' @export
 #' @examples
 #' extract_text(
@@ -20,6 +20,15 @@ extract_text <- function(path) {
     .extract_text <- J("is.rud.rpkg.App")$extract_text
 
     ret <- .extract_text(path)
+
+    if (!is.jnull(ret$page)) {
+      tmp <- data.frame(page = ret$page, text = ret$text,
+                        stringsAsFactors=FALSE)
+      class(tmp) <- c("tbl_df", "tbl", "data.frame")
+      tmp
+    } else {
+      NULL
+    }
 
   } else {
     stop(sprintf("%s not found.", call.=FALSE))

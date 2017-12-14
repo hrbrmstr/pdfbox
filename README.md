@@ -135,9 +135,12 @@ extract_text(
   system.file(
     "extdata", "imperfect-forward-secrecy-ccs15.pdf", package="pdfbox"
   )
-) -> txt
-str(stringi::stri_split_lines(txt))
+) -> pg_df
+
+dplyr::glimpse(pg_df)
 ```
 
-    ## List of 1
-    ##  $ : chr [1:1497] "Imperfect Forward Secrecy:" "How Diffie-Hellman Fails in Practice" "David Adrian¶ Karthikeyan Bhargavan∗ Zakir Durumeric¶ Pierrick Gaudry† Matthew Green§" "J. Alex Halderman¶ Nadia Heninger‡ Drew Springall¶ Emmanuel Thomé† Luke Valenta‡" ...
+    ## Observations: 13
+    ## Variables: 2
+    ## $ page <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+    ## $ text <chr> "Imperfect Forward Secrecy:\nHow Diffie-Hellman Fails in Practice\nDavid Adrian¶ Karthikeyan Bhargavan...
