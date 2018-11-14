@@ -18,6 +18,7 @@ Description: The 'Apache' 'PDFBox' library is an open source 'Java' tools for wo
 URL: https://github.com/hrbrmstr/pdfbox
 BugReports: https://github.com/hrbrmstr/pdfbox/issues
 License: Apache License 2.0 | file LICENSE
+Encoding: UTF-8
 Suggests:
     testthat,
     covr
@@ -27,5 +28,5 @@ Depends:
     pdfboxjars
 Imports:
     tools
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000
 Remotes: github::hrbrmstr/pdfboxjars
