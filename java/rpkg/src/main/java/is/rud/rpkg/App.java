@@ -78,6 +78,28 @@ class pgdf {
 
 public class App {
 
+   public static uridf extractByArea(String pdfPath) throws IOException {
+
+     PDDocument doc = null;
+
+     List<Integer> ret_page = new ArrayList<Integer>();
+     List<String> ret_text = new ArrayList<String>();
+
+     try {
+
+       doc = PDDocument.load(new File(pdfPath));
+       int pageNum = 0;
+       for (PDPage page: doc.getPages()) {
+         pageNum++;
+         PDFTextStripperByArea stripper = new PDFTextStripperByArea();
+       }
+
+     } finally {
+      if (doc != null) doc.close();
+    }
+
+  }
+
   public static uridf extractURIs(String pdfPath) throws IOException {
 
    PDDocument doc = null;
