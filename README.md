@@ -38,6 +38,7 @@ The following functions are implemented:
 
   - `extract_uris`: Extract URI annotations from a PDF document
   - `extract_text`: Extract text from a PDF document
+  - `pdf_info`: Retrieve PDF Metadata
 
 ## Installation
 
@@ -114,3 +115,20 @@ dplyr::glimpse(pg_df)
 ## $ page <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 ## $ text <chr> "Imperfect Forward Secrecy:\nHow Diffie-Hellman Fails in Practice\nDavid Adrian¶ Karthikeyan Bhargavan∗ …
 ```
+
+### pdfbox Metrics
+
+| Lang  | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
+| :---- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
+| Java  |        3 | 0.18 | 352 | 0.57 |          89 | 0.51 |       23 | 0.15 |
+| R     |       10 | 0.59 | 132 | 0.21 |          47 | 0.27 |       77 | 0.50 |
+| XML   |        1 | 0.06 |  69 | 0.11 |           0 | 0.00 |        0 | 0.00 |
+| Rmd   |        1 | 0.06 |  27 | 0.04 |          31 | 0.18 |       52 | 0.34 |
+| Maven |        1 | 0.06 |  27 | 0.04 |           3 | 0.02 |        1 | 0.01 |
+| make  |        1 | 0.06 |  10 | 0.02 |           5 | 0.03 |        1 | 0.01 |
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.
