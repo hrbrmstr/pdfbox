@@ -23,6 +23,6 @@ matrix:
 r_packages:
   - covr
 r_github_packages:
-  - hrbrmstr/htmlunitjars
+  - hrbrmstr/pdfboxjars
 after_success:
   - R -q -e 'library("covr");codecov()'
