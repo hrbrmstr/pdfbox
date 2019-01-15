@@ -4,6 +4,19 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r, echo = FALSE, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  collapse = TRUE,
+  comment = "##"
+)
+```
+
+[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/pdfbox.svg?branch=master)](https://travis-ci.org/hrbrmstr/pdfbox) 
+[![Coverage Status](https://codecov.io/gh/hrbrmstr/pdfbox/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/pdfbox)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/pdfbox)](https://cran.r-project.org/package=pdfbox)
+
 # pdfbox
 
 Create, Maniuplate and Extract Data from PDF Files (R Apache PDFBox wrapper)

@@ -1,4 +1,10 @@
 
+[![Travis-CI Build
+Status](https://travis-ci.org/hrbrmstr/pdfbox.svg?branch=master)](https://travis-ci.org/hrbrmstr/pdfbox)
+[![Coverage
+Status](https://codecov.io/gh/hrbrmstr/pdfbox/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/pdfbox)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/pdfbox)](https://cran.r-project.org/package=pdfbox)
+
 # pdfbox
 
 Create, Maniuplate and Extract Data from PDF Files (R Apache PDFBox
@@ -47,9 +53,8 @@ library(pdfbox)
 
 # current verison
 packageVersion("pdfbox")
+## [1] '0.3.0'
 ```
-
-    ## [1] '0.2.0'
 
 ### PDF Info
 
@@ -61,17 +66,16 @@ pdf_info(
 ) -> info
 
 dplyr::glimpse(info)
+## Observations: 1
+## Variables: 7
+## $ title             <chr> "Imperfect Forward Secrecy: How Diffie-Hellman Fails in Practice"
+## $ subject           <chr> ""
+## $ author            <chr> ""
+## $ creation_date     <chr> "Aug 21, 2015 11:06:23 AM"
+## $ modification_date <chr> "Aug 21, 2015 11:08:05 AM"
+## $ producer          <chr> "pdfTeX-1.40.14"
+## $ keywords          <chr> ""
 ```
-
-    ## Observations: 1
-    ## Variables: 7
-    ## $ title             <chr> "Imperfect Forward Secrecy: How Diffie-Hellman Fails in Practice"
-    ## $ subject           <chr> ""
-    ## $ author            <chr> ""
-    ## $ creation_date     <chr> "Aug 21, 2015 11:06:23 AM"
-    ## $ modification_date <chr> "Aug 21, 2015 11:08:05 AM"
-    ## $ producer          <chr> "pdfTeX-1.40.14"
-    ## $ keywords          <chr> ""
 
 ### Extract URI Annotations
 
@@ -79,22 +83,21 @@ dplyr::glimpse(info)
 extract_uris(
   system.file("extdata","imperfect-forward-secrecy-ccs15.pdf", package="pdfbox")
 )
+## # A tibble: 33 x 3
+##     page uri                                                                    text                                    
+##    <int> <chr>                                                                  <chr>                                   
+##  1     1 https://weakdh.org                                                     WeakDH.org.                             
+##  2     6 www.fbi.gov                                                            www.fbi.gov.                            
+##  3    12 http://cr.yp.to/factorization/smoothparts-20040510.pdf                 http://cr.yp.to/factorization/smoothpar…
+##  4    12 http://caramel.loria.fr/p180.txt                                       http://caramel.loria.fr/p180.txt.       
+##  5    12 http://www.hyperelliptic.org/tanja/SHARCS/talks06/thorsten.pdf         http://www.hyperelliptic.org/tanja/     
+##  6    12 http://www.hyperelliptic.org/tanja/SHARCS/talks06/thorsten.pdf         SHARCS/talks06/thorsten.pdf.            
+##  7    13 https://www.olcf.ornl.gov/titan                                        https://www.olcf.ornl.gov/titan.        
+##  8    13 http://www.spiegel.de/international/germany/inside-the-nsa-s-war-on-i… http://www.spiegel.de/international/ger…
+##  9    13 http://www.spiegel.de/international/germany/inside-the-nsa-s-war-on-i… inside-the-nsa-s-war-on-internet-securi…
+## 10    13 http://www.sagemath.org                                                http://www.sagemath.org.                
+## # … with 23 more rows
 ```
-
-    ## # A tibble: 33 x 3
-    ##     page                                                                                                  uri
-    ##    <int>                                                                                                <chr>
-    ##  1     1                                                                                   https://weakdh.org
-    ##  2     6                                                                                          www.fbi.gov
-    ##  3    12                                               http://cr.yp.to/factorization/smoothparts-20040510.pdf
-    ##  4    12                                                                     http://caramel.loria.fr/p180.txt
-    ##  5    12                                       http://www.hyperelliptic.org/tanja/SHARCS/talks06/thorsten.pdf
-    ##  6    12                                       http://www.hyperelliptic.org/tanja/SHARCS/talks06/thorsten.pdf
-    ##  7    13                                                                      https://www.olcf.ornl.gov/titan
-    ##  8    13 http://www.spiegel.de/international/germany/inside-the-nsa-s-war-on-internet-security-a-1010361.html
-    ##  9    13 http://www.spiegel.de/international/germany/inside-the-nsa-s-war-on-internet-security-a-1010361.html
-    ## 10    13                                                                              http://www.sagemath.org
-    ## # ... with 23 more rows, and 1 more variables: text <chr>
 
 ### Extract text
 
@@ -106,9 +109,8 @@ extract_text(
 ) -> pg_df
 
 dplyr::glimpse(pg_df)
+## Observations: 13
+## Variables: 2
+## $ page <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+## $ text <chr> "Imperfect Forward Secrecy:\nHow Diffie-Hellman Fails in Practice\nDavid Adrian¶ Karthikeyan Bhargavan∗ …
 ```
-
-    ## Observations: 13
-    ## Variables: 2
-    ## $ page <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
-    ## $ text <chr> "Imperfect Forward Secrecy:\nHow Diffie-Hellman Fails in Practice\nDavid Adrian¶ Karthikeyan Bhargavan...

@@ -1,8 +1,8 @@
 Package: pdfbox
 Type: Package
 Title: Create, Maniuplate and Extract Data from PDF Files
-Version: 0.2.0
-Date: 2017-10-22
+Version: 0.3.0
+Date: 2019-01-15
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
            comment = c(ORCID = "0000-0001-5670-2640")),
@@ -28,5 +28,5 @@ Depends:
     pdfboxjars
 Imports:
     tools
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.1
 Remotes: github::hrbrmstr/pdfboxjars
