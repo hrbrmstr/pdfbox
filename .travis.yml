@@ -1,31 +1,28 @@
 language: r
-
-warnings_are_errors: true
-
-sudo: required
-
 cache: packages
-
-r:
- - oldrel
- - release
- - devel
-
-apt_packages:
-  - libv8-dev
-  - xclip
-
-env:
- global:
-   - CRAN: http://cran.rstudio.com
-
+warnings_are_errors: true
+matrix:
+  include:
+    - os: linux
+      r: oldrel
+    - os: linux
+      r: release
+    - os: linux
+      r: devel
+    - os: linux
+      dist: trusty
+      env: R_CODECOV=true
+    - os: osx
+      osx_image: xcode8.3
+      before_install:
+        - R CMD javareconf
+    - os: osx
+      osx_image: xcode9.2
+      before_install:
+        - R CMD javareconf
+r_packages:
+  - covr
+r_github_packages:
+  - hrbrmstr/htmlunitjars
 after_success:
-  - Rscript -e 'covr::codecov()'
-
-notifications:
-  email:
-    - bob@rud.is
-  irc:
-    channels:
-      - "104.236.112.222#builds"
-    nick: travisci
+  - R -q -e 'library("covr");codecov()'
