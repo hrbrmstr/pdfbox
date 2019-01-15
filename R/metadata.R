@@ -29,14 +29,14 @@ pdf_info <- function(path) {
 
       creation_date <- ret$getCreationDate()
       if (!is.null(creation_date)) {
-        creation_date <- creation_date$toLocaleString()
+        creation_date <- creation_date$toZonedDateTime()$toString()
       } else {
         creation_date <- NA_character_
       }
 
       modification_date <- ret$getModificationDate()
       if (!is.null(modification_date)) {
-        modification_date <- modification_date$toLocaleString()
+        modification_date <- modification_date$toZonedDateTime()$toString()
       } else {
         modification_date <- NA_character_
       }

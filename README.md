@@ -71,8 +71,8 @@ dplyr::glimpse(info)
 ## $ title             <chr> "Imperfect Forward Secrecy: How Diffie-Hellman Fails in Practice"
 ## $ subject           <chr> ""
 ## $ author            <chr> ""
-## $ creation_date     <chr> "Aug 21, 2015 11:06:23 AM"
-## $ modification_date <chr> "Aug 21, 2015 11:08:05 AM"
+## $ creation_date     <chr> "2015-08-21T11:06:23-04:00[GMT-04:00]"
+## $ modification_date <chr> "2015-08-21T11:08:05-04:00[GMT-04:00]"
 ## $ producer          <chr> "pdfTeX-1.40.14"
 ## $ keywords          <chr> ""
 ```
